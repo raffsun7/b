@@ -416,3 +416,91 @@ input#volume:checked ~ label[for="volume"] svg:nth-child(2) {
     transform: translateY(0);
   }
 }
+
+label[for="volume"] {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 44px;
+  height: 44px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(6px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+label[for="volume"]:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+label[for="volume"] i {
+  font-size: 20px;
+  transition: opacity 0.3s ease;
+  position: absolute;
+  background: linear-gradient(90deg, #000000, #0056c8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+label[for="volume"] .volume-on {
+  opacity: 0;
+}
+
+input#volume:checked ~ label[for="volume"] .volume-on {
+  opacity: 1;
+}
+
+input#volume:checked ~ label[for="volume"] .volume-off {
+  opacity: 0;
+}
+
+/* Volume toggle styles */
+input#volume {
+  display: none;
+}
+
+label.volume-toggle {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 48px;
+  height: 48px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+  z-index: 999;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+label.volume-toggle:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+.volume-toggle i {
+  font-size: 22px;
+  color: black;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.volume-toggle .volume-off {
+  opacity: 1;
+}
+
+input#volume:checked ~ label.volume-toggle .volume-on {
+  opacity: 1;
+}
+
+input#volume:checked ~ label.volume-toggle .volume-off {
+  opacity: 0;
+}
